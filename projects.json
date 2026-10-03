@@ -94,5 +94,24 @@
       "en": "Explore an archived graph and test a reversible hypothesis. Every relation keeps its evidence."
     },
     "instrument": "architecture-seo-decision-matrix"
+  },
+  {
+    "slug": "seo-migration-review-demo",
+    "category": {
+      "fr": "Migration SEO",
+      "en": "SEO migration"
+    },
+    "title": {
+      "fr": "14 URL oubliées. 31 % des clics.",
+      "en": "14 missing URLs. 31% of the clicks."
+    },
+    "description": {
+      "fr": "Rapprochez un plan fictif de son inventaire, examinez les décisions manquantes, puis comparez vos CSV dans votre navigateur. Aucun crawl ni trafic prédit.",
+      "en": "Compare a fictional plan with its inventory, inspect missing decisions, then review your CSV files in your browser. French interface; no crawl or traffic forecast."
+    },
+    "demo_languages": [
+      "fr"
+    ],
+    "method": "TESTING.md"
   }
 ]

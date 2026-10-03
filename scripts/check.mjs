@@ -10,9 +10,12 @@ for(const lang of ['fr','en']){
   assert.ok(page.includes(`rel="canonical" href="https://edikkaweb.github.io/${lang==='en'?'index-en.html':''}"`));
   for(const p of projects){
     assert.ok(p.title[lang]&&p.description[lang]);
-    assert.ok(page.includes(`href="/${p.slug}/${lang==='en'?'index-en.html':''}"`));
+    assert.ok(page.includes(`href="/${p.slug}/${lang==='en' && p.demo_languages?.includes('en') !== false ? 'index-en.html':''}"`));
     assert.ok(page.includes(`href="https://github.com/edikkaweb/${p.slug}"`));
   }
+  assert.ok(page.includes('seo-migration-review-demo/blob/main/TESTING.md'));
+  assert.ok(!page.includes('/seo-migration-review-demo/index-en.html'));
+  if(lang==='en')assert.ok(page.includes('Try it · French'));
   for(const [,asset] of page.matchAll(/(?:src|href)="(assets\/[^"]+)"/g))assert.ok(fs.existsSync(`dist/${asset}`),asset);
   assert.ok(!page.includes('<script'),'Gallery works without JavaScript');
 }
