@@ -1,0 +1,98 @@
+[
+  {
+    "slug": "html-aria-agent-demo",
+    "category": {
+      "fr": "HTML & ARIA",
+      "en": "HTML & ARIA"
+    },
+    "title": {
+      "fr": "Même apparence. Trois réalités.",
+      "en": "Same appearance. Three realities."
+    },
+    "description": {
+      "fr": "Comparez trois commandes et essayez-les au clavier. Que change le choix de l’élément HTML ?",
+      "en": "Compare three controls and try them with a keyboard. What changes when you choose a different HTML element?"
+    },
+    "instrument": "professional-website-accessibility-foundation"
+  },
+  {
+    "slug": "accessible-form-demo",
+    "category": {
+      "fr": "Formulaire & réception",
+      "en": "Forms & receipt"
+    },
+    "title": {
+      "fr": "« Message envoyé ». Vraiment reçu ?",
+      "en": "“Message sent”. Actually received?"
+    },
+    "description": {
+      "fr": "Corrigez une erreur, reprenez après un refus et vérifiez une réception incertaine sans créer de doublon.",
+      "en": "Correct an error, recover after a refusal and check uncertain receipt without creating a duplicate."
+    },
+    "instrument": "ux-writing-protocol"
+  },
+  {
+    "slug": "semantic-html-extraction-demo",
+    "category": {
+      "fr": "HTML sémantique",
+      "en": "Semantic HTML"
+    },
+    "title": {
+      "fr": "Ce que les outils conservent.",
+      "en": "What tools preserve."
+    },
+    "description": {
+      "fr": "Explorez les sorties archivées de sept outils. Retrouvez le texte source derrière chaque comparaison.",
+      "en": "Explore archived outputs from seven tools. Trace each comparison back to its source text."
+    },
+    "instrument": "semantic-html-extraction"
+  },
+  {
+    "slug": "image-layout-stability-demo",
+    "category": {
+      "fr": "Images & stabilité",
+      "en": "Images & stability"
+    },
+    "title": {
+      "fr": "Une image arrive. Tout bouge ?",
+      "en": "An image arrives. Does everything move?"
+    },
+    "description": {
+      "fr": "Lancez deux scènes identiques, avec et sans espace réservé, puis consultez les mesures de laboratoire.",
+      "en": "Run two identical scenes, with and without reserved space, then inspect the laboratory measurements."
+    },
+    "instrument": "web-image-audit-grid"
+  },
+  {
+    "slug": "metadata-review-demo",
+    "category": {
+      "fr": "Revue éditoriale",
+      "en": "Editorial review"
+    },
+    "title": {
+      "fr": "Peut-on publier ce titre ?",
+      "en": "Can we publish this title?"
+    },
+    "description": {
+      "fr": "Confrontez une proposition à ses sources. Corrigez une promesse et examinez ce qui reste à valider.",
+      "en": "Check a proposal against its sources. Correct a claim and examine what still needs review."
+    },
+    "instrument": "metadata-review-protocol"
+  },
+  {
+    "slug": "seo-architecture-demo",
+    "category": {
+      "fr": "Maillage interne",
+      "en": "Internal linking"
+    },
+    "title": {
+      "fr": "Quels chemins vers vos pages clés ?",
+      "en": "Which paths lead to your key pages?"
+    },
+    "description": {
+      "fr": "Explorez un graphe archivé et testez une hypothèse réversible. Chaque relation garde sa preuve.",
+      "en": "Explore an archived graph and test a reversible hypothesis. Every relation keeps its evidence."
+    },
+    "instrument": "architecture-seo-decision-matrix"
+  }
+]

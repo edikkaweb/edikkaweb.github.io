@@ -1,0 +1,30 @@
+import fs from 'node:fs';
+const projects = JSON.parse(fs.readFileSync('projects.json'));
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+fs.rmSync('dist', {recursive:true,force:true});
+fs.mkdirSync('dist');
+fs.cpSync('assets','dist/assets',{recursive:true});
+for (const lang of ['fr','en']) {
+  const en = lang === 'en', t = (fr,enText) => en ? enText : fr;
+  const library = `https://www.edikka.com/${en?'en/library':'bibliotheque'}`;
+  const canonical = `https://edikkaweb.github.io/${en?'index-en.html':''}`;
+  const title = t('Le laboratoire ouvert d’Edikka','Edikka’s open lab');
+  const description = t('Des expériences concrètes pour comprendre le web. Essayez les démonstrations, explorez leur code et retrouvez leur méthode.','Hands-on experiments to understand the web. Try the demonstrations, explore their code and follow their methods.');
+  const cards = projects.map((p,i) => `<article class="project" aria-labelledby="project-${i}">
+    <a class="preview" tabindex="-1" aria-hidden="true" href="/${p.slug}/${en?'index-en.html':''}"><img src="assets/${p.slug}.webp" width="720" height="450" alt="" loading="lazy" decoding="async"></a>
+    <div class="project-body"><p class="eyebrow"><span>${String(i+1).padStart(2,'0')}</span>${esc(p.category[lang])}</p>
+    <h2 id="project-${i}">${esc(p.title[lang])}</h2><p class="description">${esc(p.description[lang])}</p>
+    <div class="project-links"><a class="try" href="/${p.slug}/${en?'index-en.html':''}">${t('Essayer','Try it')} <span aria-hidden="true">↗</span><span class="sr-only"> — ${esc(p.category[lang])}</span></a><a href="https://github.com/edikkaweb/${p.slug}">${t('Code','Code')}<span class="sr-only"> — ${esc(p.category[lang])}</span></a><a href="https://github.com/edikkaweb/${p.slug}/blob/main/${p.slug==='html-aria-agent-demo'?'TESTING.md':'docs/REPRODUCTION.md'}">${t('Méthode','Method')}<span class="sr-only"> — ${esc(p.category[lang])}</span></a></div></div></article>`).join('\n');
+  fs.writeFileSync(`dist/${en?'index-en.html':'index.html'}`,`<!doctype html>
+<html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${title}</title><meta name="description" content="${description}"><meta name="theme-color" content="#f7f7f5"><link rel="canonical" href="${canonical}"><link rel="alternate" hreflang="fr" href="https://edikkaweb.github.io/"><link rel="alternate" hreflang="en" href="https://edikkaweb.github.io/index-en.html"><link rel="alternate" hreflang="x-default" href="https://edikkaweb.github.io/"><meta property="og:type" content="website"><meta property="og:title" content="${title}"><meta property="og:description" content="${description}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="https://edikkaweb.github.io/assets/html-aria-agent-demo.webp"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css"></head>
+<body><a class="skip" href="#main">${t('Aller au contenu','Skip to content')}</a>
+<header class="site-header shell"><a href="https://www.edikka.com/${en?'en/':''}" aria-label="Edikka"><img src="assets/edikka.svg" width="212" height="20" alt="Edikka"></a><nav aria-label="${t('Navigation principale','Main navigation')}"><a href="${library}">${t('Bibliothèque','Library')}</a><a href="https://github.com/edikkaweb">GitHub</a><a class="language" href="${en?'./':'index-en.html'}" lang="${en?'fr':'en'}" hreflang="${en?'fr':'en'}" aria-label="${en?'Version française':'English version'}">${en?'FR':'EN'}</a></nav></header>
+<main id="main"><section class="hero shell" aria-labelledby="title"><p class="eyebrow">${t('Le laboratoire ouvert d’Edikka','Edikka’s open lab')}</p><h1 id="title">${t('Le web se comprend<br><em>en l’essayant.</em>','Understand the web.<br><em>Try it for yourself.</em>')}</h1><div class="hero-bottom"><p>${description}</p><a class="explore" href="#experiments">${t('Explorer les démonstrations','Explore the demonstrations')} <span aria-hidden="true">↓</span></a></div></section>
+<section class="experiments shell" id="experiments" aria-label="${t('Démonstrations','Demonstrations')}">${cards}</section>
+<section class="continuation shell"><div><p class="eyebrow">${t('De l’expérience à la méthode','From experiment to method')}</p><h2>${t('Continuez dans<br>la bibliothèque.','Continue in<br>the library.')}</h2></div><div><p>${t('Protocoles, grilles et instruments documentés : retrouvez les sources de ces expériences et les ressources pour les mettre en pratique.','Documented protocols, checklists and instruments: find the sources behind these experiments and resources to put them into practice.')}</p><a href="${library}">${t('Explorer la bibliothèque Edikka','Explore the Edikka library')} <span aria-hidden="true">↗</span></a></div></section></main>
+<footer class="site-footer shell"><p>Edikka · Bertrand Morel</p><nav aria-label="${t('À propos','About')}"><a href="https://www.edikka.com/${en?'en/agency/bertrand-morel':'agence/bertrand-morel'}">${t('À propos','About')}</a><a href="https://github.com/edikkaweb">GitHub</a><a href="https://www.edikka.com/${en?'en/contact':'contact'}">${t('Parlons de votre projet','Let’s discuss your project')}</a></nav><p class="fine">${t('Chaque projet documente ses sources, ses tests et son périmètre.','Each project documents its sources, tests and scope.')}</p></footer></body></html>\n`);
+}
+fs.writeFileSync('dist/.nojekyll','');
+fs.writeFileSync('dist/robots.txt','User-agent: *\nAllow: /\nSitemap: https://edikkaweb.github.io/sitemap.xml\n');
+fs.writeFileSync('dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://edikkaweb.github.io/</loc></url><url><loc>https://edikkaweb.github.io/index-en.html</loc></url></urlset>');
+console.log(`Built ${projects.length} projects in French and English.`);
