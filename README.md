@@ -15,7 +15,7 @@ npm test
 
 Les sources sont `projects.json`, `assets/` et `scripts/build.mjs`. `dist/` est généré et non suivi. GitHub Actions vérifie les deux langues et les ressources avant de publier. La galerie fonctionne sans JavaScript, sans traceur, sans police distante.
 
-Les aperçus sont les captures réelles du laboratoire Edikka, publiées dans la bibliothèque le 2 octobre 2026. Ils sont des illustrations de l’interface, pas de nouvelles mesures. Les dépôts des expériences restent la source des résultats, des versions et des licences.
+Les aperçus sont des captures réelles des candidats vérifiés le 3 octobre 2026. Ils sont des illustrations de l’interface, pas de nouvelles mesures. Les dépôts des expériences restent la source des résultats, des versions et des licences.
 
 ## Contribuer
 
