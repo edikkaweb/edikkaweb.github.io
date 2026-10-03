@@ -77,7 +77,7 @@
       "fr": "Confrontez une proposition à ses sources. Corrigez une promesse et examinez ce qui reste à valider.",
       "en": "Check a proposal against its sources. Correct a claim and examine what still needs review."
     },
-    "instrument": "metadata-review-protocol"
+    "instrument": "metadata-review-kit"
   },
   {
     "slug": "seo-architecture-demo",
