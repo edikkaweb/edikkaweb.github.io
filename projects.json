@@ -132,5 +132,24 @@
       "fr"
     ],
     "method": "METHOD.md"
+  },
+  {
+    "slug": "robots-policy-review-demo",
+    "category": {
+      "fr": "Règles & intention",
+      "en": "Rules & declared intent"
+    },
+    "title": {
+      "fr": "Une restriction ajoutée. Un accès rouvert.",
+      "en": "A new restriction. An unintended opening."
+    },
+    "description": {
+      "fr": "Un groupe GPTBot peut rouvrir un chemin exclu par le groupe général. Comparez deux fichiers à vos attentes, suivez les lignes décisives et exportez les preuves. Six scénarios synthétiques, analyse locale.",
+      "en": "A GPTBot group can reopen a path excluded by the wildcard group. Compare two files against your expectations, inspect decisive lines and export evidence. Six synthetic scenarios, local analysis. French interface."
+    },
+    "demo_languages": [
+      "fr"
+    ],
+    "method": "METHOD.md"
   }
 ]
