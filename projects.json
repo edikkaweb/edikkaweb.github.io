@@ -113,5 +113,24 @@
       "fr"
     ],
     "method": "TESTING.md"
+  },
+  {
+    "slug": "jsonld-content-consistency-demo",
+    "category": {
+      "fr": "Contenu & JSON-LD",
+      "en": "Content & JSON-LD"
+    },
+    "title": {
+      "fr": "Votre page a changé. Votre JSON-LD aussi ?",
+      "en": "Your page changed. Did your JSON-LD?"
+    },
+    "description": {
+      "fr": "Comparez deux gabarits dans huit scénarios fictifs, puis contrôlez vos fichiers HTML localement. Profils réutilisables et preuves par champ. La concordance ne certifie pas la vérité.",
+      "en": "Compare two templates across eight fictional scenarios, then review your HTML files locally. Reusable profiles and evidence for each field. French interface; agreement does not certify truth."
+    },
+    "demo_languages": [
+      "fr"
+    ],
+    "method": "METHOD.md"
   }
 ]
